@@ -2,6 +2,9 @@ require('pry')
 require_relative ('../models/artist')
 require_relative ('../models/album')
 
+Album.delete_all
+Artist.delete_all
+
 
 
 artist1 = Artist.new({ 'name' => 'Future'})
@@ -33,7 +36,3 @@ album3 = Album.new({
 album3.save
 album3.genre = 'Trap'
 album3.update
-
-
-# p artist1.albums
-# p album2.artist
