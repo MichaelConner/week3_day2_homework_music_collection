@@ -7,20 +7,32 @@ require_relative ('../models/album')
 artist1 = Artist.new({ 'name' => 'Future'})
 artist1.save
 
+artist1.name = "FUTURE"
+artist1.update
+
 
 album1 = Album.new({
-  'title' => 'Beast Mode II',
+  'title' => 'BEASTMODE II',
   'genre' => 'Trap',
   'artist_id' => artist1.id
   })
 album1.save
 
 album2 = Album.new({
-  'title' => 'Beast Mode',
+  'title' => 'BEASTMODE',
   'genre' => 'Trap',
   'artist_id' => artist1.id
   })
 album2.save
+
+album3 = Album.new({
+  'title' => 'FUTURE',
+  'genre' => 'Rap',
+  'artist_id' => artist1.id
+  })
+album3.save
+album3.genre = 'Trap'
+album3.update
 
 
 # p artist1.albums

@@ -12,13 +12,13 @@ class Artist
     @name = options['name']
   end
 
-  def save()
+  def save() #creates a new entry in the artists table
     sql = "INSERT INTO artists (name) VALUES ($1) RETURNING id"
     values = [@name]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
-  def self.all()
+  def self.all() #returns all of the values in the artists table
     sql = "SELECT * FROM artists"
     artists = SqlRunner.run(sql)
     return artists.map{|artist| Artist.new(artist)}
@@ -31,5 +31,14 @@ class Artist
     return albums.map{|album| Album.new(album)}
   end
 
+  def update() #updates an artist entry
+    sql = "UPDATE artists SET name = $1 WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  # def self.delete_all()
+  #
+  # end
 
 end
