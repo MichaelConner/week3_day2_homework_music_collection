@@ -24,6 +24,13 @@ class Artist
     return artists.map{|artist| Artist.new(artist)}
   end
 
+  def self.find_by_id(id) #returns all of the values for an artist based on their id
+    sql = "SELECT * FROM artists WHERE id = $1"
+    values = [id]
+    artist = SqlRunner.run(sql, values)[0]
+    return Artist.new(artist)
+  end
+
   def albums() #returns all of the selected artist's albums
     sql = "SELECT * FROM albums WHERE artist_id = $1"
     values = [@id]
@@ -42,7 +49,7 @@ class Artist
     SqlRunner.run(sql)
   end
 
-  def delete() #returns all of the selected artist's albums
+  def delete() #deletes everything for the selected artist
    sql = "DELETE FROM artists WHERE id = $1"
    values = [@id]
    SqlRunner.run(sql, values)

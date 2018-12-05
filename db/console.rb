@@ -19,7 +19,6 @@ artist2.delete
 
 
 
-
 album1 = Album.new({
   'title' => 'BEASTMODE II',
   'genre' => 'Trap',
@@ -41,3 +40,6 @@ album3 = Album.new({
   })
 album3.save
 album3.delete
+
+p Artist.find_by_id(47)
+p Album.find_by_id(77)
