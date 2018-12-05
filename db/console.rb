@@ -13,6 +13,12 @@ artist1.save
 artist1.name = "FUTURE"
 artist1.update
 
+artist2 = Artist.new({ 'name' => 'Quavo'})
+artist2.save
+artist2.delete
+
+
+
 
 album1 = Album.new({
   'title' => 'BEASTMODE II',
@@ -34,5 +40,4 @@ album3 = Album.new({
   'artist_id' => artist1.id
   })
 album3.save
-album3.genre = 'Trap'
-album3.update
+album3.delete
