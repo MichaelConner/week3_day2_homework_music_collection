@@ -1,6 +1,7 @@
 require('pg')
 require('pry')
 require_relative('../db/sql_runner')
+require_relative('artist')
 
 
 class Album
@@ -28,9 +29,9 @@ class Album
   end
 
   def artist() #returns the selected album's artist
-   sql = "SELECT * FROM artist WHERE artist_id = $1"
-   values = [@title]
-   artist = SqlRunner.run(sql, values)
+   sql = "SELECT * FROM artists WHERE id = $1"
+   values = [@artist_id]
+   artist = SqlRunner.run(sql, values)[0]
    return Artist.new(artist)
  end
 

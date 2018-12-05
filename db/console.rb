@@ -23,5 +23,5 @@ album2 = Album.new({
 album2.save
 
 
-p artist1.albums
-p album2.artist
+# p artist1.albums
+# p album2.artist
